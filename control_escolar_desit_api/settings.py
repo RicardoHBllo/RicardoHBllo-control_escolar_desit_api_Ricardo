@@ -1,6 +1,10 @@
 import os
+from dotenv import load_dotenv
+import os
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+load_dotenv()
 
 # Mantén la clave secreta en variables de entorno en producción
 SECRET_KEY = '-_&+lsebec(whhw!%n@ww&1j=4-^j_if9x8$q778+99oz&!ms2'
@@ -72,12 +76,21 @@ TEMPLATES = [
 WSGI_APPLICATION = 'control_escolar_desit_api.wsgi.application'
 
 DATABASES = {
-    'default': {
+    'default2': {
         'ENGINE': 'django.db.backends.mysql',
         'OPTIONS': {
             'read_default_file': os.path.join(BASE_DIR, "my.cnf"),
             'charset': 'utf8mb4',
         }
+    },
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': os.getenv("DB_NAME", "web_movil_escolar_db"),
+        'USER': os.getenv("DB_USERNAME", "web_movil_escolar_db_user"),
+        'PASSWORD': os.getenv("DB_PASSWORD", "f2YOkLhGy2ldc8dYFC7n1fbl9oD4edvL"),
+        'HOST': os.getenv("DB_ADDR", "dpg-d4p1bb7gi27c73eenkug-a"),
+        'PORT': os.getenv("DB_PORT", "5432"),
+        'CONN_MAX_AGE': 600,
     }
 }
 
