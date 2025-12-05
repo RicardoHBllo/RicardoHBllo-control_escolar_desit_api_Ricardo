@@ -44,7 +44,14 @@ MIDDLEWARE = [
 # Configuración de CORS: define orígenes permitidos y quita CORS_ORIGIN_ALLOW_ALL
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:4200',
+    'https://app-movil-escolar-webapp-ricardo.onrender.com'
 ]
+
+# También es muy recomendable agregar esto para evitar bloqueos de CSRF en producción:
+CSRF_TRUSTED_ORIGINS = [
+    'https://app-movil-escolar-webapp-ricardo.onrender.com'
+]
+
 CORS_ALLOW_CREDENTIALS = True
 
 ROOT_URLCONF = 'control_escolar_desit_api.urls'
