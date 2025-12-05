@@ -85,11 +85,11 @@ DATABASES = {
     },
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.getenv("DB_NAME", "web_movil_escolar_db"),
-        'USER': os.getenv("DB_USERNAME", "web_movil_escolar_db_user"),
-        'PASSWORD': os.getenv("DB_PASSWORD", "f2YOkLhGy2ldc8dYFC7n1fbl9oD4edvL"),
-        'HOST': os.getenv("DB_ADDR", "dpg-d4p1bb7gi27c73eenkug-a"),
-        'PORT': os.getenv("DB_PORT", "5432"),
+        'NAME': os.getenv("DB_NAME"),
+        'USER': os.getenv("DB_USERNAME"),
+        'PASSWORD': os.getenv("DB_PASSWORD"),
+        'HOST': os.getenv("DB_ADDR"),
+        'PORT': os.getenv("DB_PORT"),
         'CONN_MAX_AGE': 600,
     }
 }
